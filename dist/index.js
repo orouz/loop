@@ -29,7 +29,7 @@ function __$$styleInject(css, ref) {
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-class Loop {
+class Loopy {
     constructor(fn, dur = Infinity, callback) {
         this.fn = fn;
         this.dur = dur;
@@ -70,4 +70,4 @@ class Loop {
     }
 }
 
-exports.Loop = Loop;
+exports.Loopy = Loopy;

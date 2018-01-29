@@ -1,4 +1,4 @@
-export declare class Loop {
+export declare class Loopy {
     private fn;
     private dur;
     private callback;

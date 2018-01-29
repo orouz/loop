@@ -25,7 +25,7 @@ function __$$styleInject(css, ref) {
   }
 }
 
-class Loop {
+class Loopy {
     constructor(fn, dur = Infinity, callback) {
         this.fn = fn;
         this.dur = dur;
@@ -66,4 +66,4 @@ class Loop {
     }
 }
 
-export { Loop };
+export { Loopy };

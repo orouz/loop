@@ -1,4 +1,4 @@
-export class Loop {
+export class Loopy {
   private raf: number
   private start: number | undefined
   private delta: number
