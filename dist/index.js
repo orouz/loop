@@ -42,6 +42,13 @@ class Loopy {
             try {
                 this.timestamp = timestamp;
                 this.start = this.start || timestamp;
+                // don't bother repeating or checking where we are on the infinity scale
+                if (this.dur === Infinity) {
+                    this.fn(this.timestamp, Infinity);
+                    if (!this.isPaused)
+                        this.raf = requestAnimationFrame(this.loop);
+                    return;
+                }
                 this.delta = (timestamp - this.start) / this.dur;
                 this.fn(timestamp, this.delta);
                 if (this.delta >= 1) {
@@ -63,6 +70,9 @@ class Loopy {
             }
         };
         this.play = () => {
+            // if not paused, when calling 'play', it will start from the start
+            if (!this.isPaused)
+                this.reset();
             this.isPaused = false;
             this.loop(this.timestamp);
         };
