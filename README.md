@@ -4,11 +4,12 @@
 
 ### Constructor Arguments
 
-| Prop     | default  |        type |
-| -------- | :------: | ----------: |
-| handler  |   noop   | LoopHandler |
-| duration | Infinity |      number |
-| callback |   none   |    function |
+| Prop      | default  |        type |
+| --------- | :------: | ----------: |
+| handler   |   noop   | LoopHandler |
+| duration  | Infinity |      number |
+| callback? |   none   |    function |
+| repeat?   |   none   |     boolean |
 
 ### API
 
