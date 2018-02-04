@@ -30,10 +30,12 @@ function __$$styleInject(css, ref) {
 Object.defineProperty(exports, '__esModule', { value: true });
 
 class Loopy {
-    constructor(fn, dur = Infinity, callback) {
+    constructor(fn, dur = Infinity, callback, repeat) {
         this.fn = fn;
         this.dur = dur;
         this.callback = callback;
+        this.repeat = repeat;
+        this.delta = 0;
         this.timestamp = 0;
         this.isPaused = false;
         this.loop = (timestamp) => {
@@ -46,6 +48,10 @@ class Loopy {
                     if (this.callback)
                         this.callback();
                     cancelAnimationFrame(this.raf);
+                    if (this.repeat) {
+                        this.reset();
+                        this.play();
+                    }
                 }
                 else {
                     if (!this.isPaused)
@@ -65,8 +71,11 @@ class Loopy {
         };
         this.stop = () => {
             cancelAnimationFrame(this.raf);
-            this.timestamp = this.start = 0;
+            this.reset();
         };
+    }
+    reset() {
+        this.timestamp = this.start = this.delta = 0;
     }
 }
 
